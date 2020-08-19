@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+ 
+ double balance, deposit, withdraw;
+ int option;
+
+ balance = 0.0; 
+
+ do
+ {
+  cout <<"ATM";
+  cout <<"\n1. Check Balance       ";
+  cout <<"\n2. Deposit              ";
+  cout <<"\n3. Withdraw            ";
+  cout <<"\n0. Exit               ";
+  cout <<"\nPlease choose an option: ";
+  cin>> option;
+
+  switch (option){
+
+  case 1: cout << "\nYour Balance is: "<<balance <<endl;
+        break;
+
+  case 2: cout << "\nAmount you want to deposit: ";
+       cin>>deposit;
+    balance += deposit;
+    cout<<"\nCurrent Balance: " << balance <<endl;
+    break;
+
+  case 3: cout << "\nHow much do you want to withdraw?: ";
+   cin>> withdraw;
+
+   if(balance < withdraw)
+    cout << "\nYou do not have enough money in your account to withdraw"<<endl;
+   else
+    balance -= withdraw;
+
+   cout<<"\n Current Balance: " << balance <<endl;
+    break;
+
+  default: if(option != 0)
+      cout<< "\nInvalid option. Please try 1,2,3,0" <<endl;;
+   break;
+  }
+
+ } while (option != 0);
+
+ cout<<"Exit program"<<endl;
+ system("pause");
+ return 0;
+}
